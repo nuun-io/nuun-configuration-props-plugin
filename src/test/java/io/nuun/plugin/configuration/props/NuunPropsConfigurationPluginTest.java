@@ -1,8 +1,10 @@
 package io.nuun.plugin.configuration.props;
 
+import static io.nuun.kernel.core.NuunCore.createKernel;
+import static io.nuun.kernel.core.NuunCore.newKernelConfiguration;
 import static org.fest.assertions.Assertions.assertThat;
+import io.nuun.kernel.api.Kernel;
 import io.nuun.kernel.api.plugin.AbstractPlugin;
-import io.nuun.kernel.core.Kernel;
 import jodd.props.Props;
 
 import org.junit.BeforeClass;
@@ -20,27 +22,32 @@ public class NuunPropsConfigurationPluginTest
     @BeforeClass
     public static void init()
     {
-        Kernel kernel = Kernel.createKernel(Kernel.NUUN_ROOT_PACKAGE , NuunPropsConfigurationPluginTest.class.getPackage().getName() )
-                .withPlugins(
+        Kernel kernel = createKernel(
+                //
+                newKernelConfiguration() //
+                .params( //
+                        Kernel.NUUN_ROOT_PACKAGE , NuunPropsConfigurationPluginTest.class.getPackage().getName()
+                        ) //
+                .plugins(
                         
                         new AbstractPlugin()
                         {
-                            
                             @Override
                             public String name()
                             {
                                 return "internal plugin";
                             }
                             
+                            @Override
                             public String pluginPackageRoot() {
                                 return NuunPropsConfigurationPluginTest.class.getPackage().getName();
                             };
                             
+                            @Override
                             public Object dependencyInjectionDef() {
                                 
                                 return new AbstractModule()
                                 {
-                                    
                                     @Override
                                     protected void configure()
                                     {
@@ -53,7 +60,9 @@ public class NuunPropsConfigurationPluginTest
                         )
                 
                 
-                .build();
+                );
+        
+        
         
         kernel.init();
         kernel.start();
