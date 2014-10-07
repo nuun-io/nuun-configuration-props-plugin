@@ -16,11 +16,11 @@
  */
 package io.nuun.plugin.configuration.props;
 
-import io.nuun.kernel.api.plugin.AbstractPlugin;
 import io.nuun.kernel.api.plugin.InitState;
 import io.nuun.kernel.api.plugin.PluginException;
 import io.nuun.kernel.api.plugin.context.InitContext;
 import io.nuun.kernel.api.plugin.request.ClasspathScanRequest;
+import io.nuun.kernel.core.AbstractPlugin;
 import io.nuun.kernel.spi.configuration.NuunBaseConfigurationPlugin;
 
 import java.io.IOException;
