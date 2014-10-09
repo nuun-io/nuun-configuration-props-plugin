@@ -16,6 +16,7 @@
  */
 package io.nuun.plugin.configuration.props;
 
+import io.nuun.kernel.api.di.UnitModule;
 import io.nuun.kernel.api.plugin.InitState;
 import io.nuun.kernel.api.plugin.PluginException;
 import io.nuun.kernel.api.plugin.context.InitContext;
@@ -79,7 +80,7 @@ public class PropsConfigurationPlugin extends AbstractPlugin implements NuunBase
     
     
     @Override
-    public Module dependencyInjectionDef()
+    public Object nativeUnitModule()
     {
         if (module == null )
         {
