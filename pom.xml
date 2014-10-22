@@ -47,7 +47,6 @@
 			<groupId>io.nuun</groupId>
 			<artifactId>kernel-core</artifactId>
 			<version>1.0.M1</version>
-			<scope>test</scope>
 		</dependency>
 
 		<dependency>
