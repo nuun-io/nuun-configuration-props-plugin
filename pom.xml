@@ -65,7 +65,7 @@
 		<dependency>
 			<groupId>io.nuun</groupId>
 			<artifactId>nuun-log-plugin</artifactId>
-			<version>1.0.M1-SNAPSHOT</version>
+			<version>1.0.M1</version>
 			<scope>test</scope>
 		</dependency>
 
